@@ -2,15 +2,15 @@
 
 require_relative "error"
 
-class Utm::Tape
-	class TapeError < Utm::Error; end
+class UTM::Tape
+	class TapeError < UTM::Error; end
 	class InvalidMove < TapeError
-		def text; "Invalid argument for method Utm::Tape#move"; end
+		def text; "Invalid argument for method UTM::Tape#move"; end
 	end
 	
 	module Move
-		LEFT = :left
-		RIGHT = :right
+		LEFT = :l
+		RIGHT = :r
 	end
 	
   attr_accessor :pos

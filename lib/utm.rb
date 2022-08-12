@@ -3,7 +3,7 @@
 require_relative "utm/version"
 require_relative "utm/tape"
 
-module Utm
+module UTM
   class Error < StandardError; end
   # Your code goes here...
 end

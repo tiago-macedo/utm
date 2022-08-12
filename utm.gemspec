@@ -4,7 +4,7 @@ require_relative "lib/utm/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "utm"
-  spec.version       = Utm::VERSION
+  spec.version       = UTM::VERSION
   spec.authors       = ["tiago-macedo"]
   spec.email         = ["tiagomacedo@ufrj.br"]
 
