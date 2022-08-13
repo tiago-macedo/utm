@@ -2,8 +2,6 @@
 
 require_relative "utm/version"
 require_relative "utm/tape"
+require_relative "utm/state_machine/state_machine"
 
-module UTM
-  class Error < StandardError; end
-  # Your code goes here...
-end
+module UTM; end

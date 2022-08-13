@@ -26,7 +26,8 @@ Gem::Specification.new do |spec|
 		"lib/utm.rb",
 		"lib/utm/version.rb",
 		"lib/utm/error.rb",
-		"lib/utm/tape.rb"
+		"lib/utm/tape.rb",
+		"lib/utm/state_machine/state_machine.rb"
 	]
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
