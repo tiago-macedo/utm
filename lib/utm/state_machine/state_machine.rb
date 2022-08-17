@@ -1,62 +1,49 @@
 # frozen_string_literal: true
 
 require_relative "state_machine_errors"
+require_relative "event"
 
 class UTM::StateMachine
-	attr_reader :current_state
+	attr_reader :current_state, :events
 	
-	def initialize(states: nil, transitions: nil)
-		@states = Set.new
-		state(states) if states
-		@transitions = {}
+	def initialize
+		@events = []
+		
+		def @events.[](name)
+			self.find { |e| e.name == name }&.transitions
+		end
 	end
 	
 	def states
-		@states.to_a
-	end
-	
-	def transitions
-		@transitions.map { |key, val| [key, val.clone] }.to_h
-	end
-	
-	def state(arg)
-		if arg.is_a? Array
-			arg.each { |element| state(element) }
-			return states
-		end
-		
-		@states << statify(arg)
-		return states
+		@events.map do |event|
+			event.transitions.keys + event.transitions.map{ |key, val| val[:to] }
+		end.flatten.uniq
 	end
 	
 	def initial_state(s)
 		@current_state ||= statify(s)
-		state(s)
 	end
 	
-	def transition(from:, to:, because:)
-		from = statify(from)
-		to = statify(to)
-		
-		if @transitions[because]
-			@transitions[because].merge!({from => to})
-		else
-			@transitions[because] = {from => to}
-		end
+	def event(...)
+		@events << UTM::Event.new(...)
 	end
 	
-	def process(event)
-		return unless (transition = @transitions[event])
-		return unless (next_state = transition[@current_state])
-		
-		@current_state = next_state
+	def process(value)
+		process!(value)
+	rescue StateMachineError
+		nil
 	end
 	
-	def process!(event)
-		raise InvalidEvent.new(event) unless (transition = @transitions[event])
-		raise InvalidTransition.new(@current_state, event) unless (next_state = transition[@current_state])
+	def process!(value)
+		raise InvalidEvent.new(value) unless (
+			event = @events[value]
+		)
+		raise InvalidTransition.new(@current_state, event) unless (
+			transition = event[@current_state]
+		)
 		
-		@current_state = next_state
+		@current_state = transition[:to]
+		transition
 	end
 	
 	private

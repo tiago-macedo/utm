@@ -6,13 +6,13 @@ class UTM::Tape
 	module Move
 		LEFT = :l
 		RIGHT = :r
+		NONE = nil
 	end
 	
   attr_accessor :pos
 	
 	def initialize(position: 0, content: [nil])
-		@pos = position
-		@p_tape = content
+		@pos, @p_tape = position, content
 		@n_tape = [nil]
 	end
 	
@@ -24,7 +24,7 @@ class UTM::Tape
 		tape[table_pos] = value
 	end
 	
-	def move(direction)
+	def move(direction = Move::NONE)
 		case direction
 		when Move::RIGHT
 			@pos += 1
@@ -32,6 +32,7 @@ class UTM::Tape
 		when Move::LEFT
 			@pos -= 1
 			expand if table_pos > tape.size
+		when Move::NONE
 		else
 			raise InvalidMove
 		end
@@ -58,9 +59,9 @@ class UTM::Tape
 	end
 	
 	def table_pos
-		@pos < 0 ?
-			-@pos - 1 :
-			@pos
+		@pos >= 0 ?
+			@pos :
+			-@pos - 1
 	end
 	
 	def expand
