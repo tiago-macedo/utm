@@ -1,5 +1,7 @@
 # Utm
 
+This gem allows you to run a Turing Machine.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -17,6 +19,8 @@ Or install it yourself as:
     $ gem install utm
 
 ## Usage
+
+See the examples at `lib/example_1.rb` and `lib/example_2.rb`.
 
 ## Development
 
