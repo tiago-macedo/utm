@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "error"
+require_relative "tape_errors"
 
 class UTM::Tape
-	class TapeError < UTM::Error; end
-	class InvalidMove < TapeError
-		def text; "Invalid argument for method UTM::Tape#move"; end
-	end
-	
 	module Move
 		LEFT = :l
 		RIGHT = :r

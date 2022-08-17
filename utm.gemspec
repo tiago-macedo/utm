@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
 		"lib/utm.rb",
 		"lib/utm/version.rb",
 		"lib/utm/error.rb",
-		"lib/utm/tape.rb",
+		"lib/utm/tape/tape.rb",
 		"lib/utm/state_machine/state_machine.rb"
 	]
   spec.bindir        = "exe"
