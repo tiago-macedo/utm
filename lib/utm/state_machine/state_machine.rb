@@ -35,6 +35,7 @@ class UTM::StateMachine
 	end
 	
 	def process!(value)
+		raise InitialStateNotSet unless @current_state
 		raise InvalidEvent.new(value) unless (
 			event = @events[value]
 		)

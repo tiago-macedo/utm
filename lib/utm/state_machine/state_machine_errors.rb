@@ -34,3 +34,9 @@ class InvalidTransition < StateMachineError
 		"Event #{@event} has no registered transition from state #{@current}"
 	end
 end
+
+class InitialStateNotSet < StateMachineError
+	def text
+		"Initial state must be set pefore processing any event"
+	end
+end
