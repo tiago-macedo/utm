@@ -14,6 +14,10 @@ class UTM::StateMachine
 		end
 	end
 	
+	def reset
+		@current_state = @initial_state
+	end
+	
 	def to_s
 		<<~TO_S.chomp
 		| states:  #{states}
@@ -29,7 +33,8 @@ class UTM::StateMachine
 	end
 	
 	def initial_state(s)
-		@current_state ||= statify(s)
+		@initial_state = statify(s)
+		@current_state = @initial_state
 	end
 	
 	def event(...)

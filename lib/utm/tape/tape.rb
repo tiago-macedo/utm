@@ -11,7 +11,11 @@ class UTM::Tape
 	
   attr_accessor :pos
 	
-	def initialize(position: 0, content: [nil])
+	def initialize(...)
+		reset(...)
+	end
+	
+	def reset(position: 0, content: [nil])
 		@pos, @p_tape = position, content
 		@n_tape = [nil]
 	end
@@ -45,13 +49,13 @@ class UTM::Tape
 		full.each_with_index do |val, idx|
 			str += "|:| " if idx == @n_tape.size
 			if idx == abs_pos
-				str += ">"
+				str += ">|"
 			else
 				str += "["
 			end
 			str += val.inspect
 			if idx == abs_pos
-				str += "< "
+				str += "|< "
 			else
 				str += "] "
 			end

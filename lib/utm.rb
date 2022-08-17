@@ -17,6 +17,11 @@ module UTM
 		def states(...); @state_machine.states(...); end
 		def event(...); @state_machine.event(...); end
 		
+		def reset(...)
+			@tape.reset(...)
+			@state_machine.reset
+		end
+		
 		def to_s
 			<<~TO_S
 			,_______________

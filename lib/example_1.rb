@@ -1,4 +1,4 @@
-# Run with `./bin/console < lib/example.rb`
+# Run with `./bin/console < lib/example_1.rb`
 
 m = UTM::Machine.new
 m.event nil,
