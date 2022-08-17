@@ -22,6 +22,12 @@ Or install it yourself as:
 
 See the examples at `lib/example_1.rb` and `lib/example_2.rb`.
 
+## ToDo
+
+- [ ] Final states
+- [ ] Tests
+- [ ] Documentation
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
