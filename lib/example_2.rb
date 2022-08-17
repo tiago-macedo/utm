@@ -1,6 +1,6 @@
 # Run with `./bin/console < lib/example_2.rb`
 
-m = UTM::Machine.new
+m = YATM::Machine.new
 m.event 0,
 	:_0 => [:_0, 0, :r],
 	:_1 => [:_1, 0, :r],

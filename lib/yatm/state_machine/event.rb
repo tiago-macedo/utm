@@ -2,7 +2,7 @@
 
 require_relative "../tape/tape"
 
-class UTM::Event
+class YATM::Event
 	attr_reader :name, :transitions
 	
 	def initialize(name, **transitions)
@@ -37,7 +37,7 @@ class UTM::Event
 		from = statify(t[0])
 		to = statify(t[1][0])
 		write = t[1][1] || @name
-		move = t[1][2] || UTM::Tape::Move::NONE
+		move = t[1][2] || YATM::Tape::Move::NONE
 		
 		@transitions.merge!({
 			from => {

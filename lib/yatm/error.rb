@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UTM::Error < StandardError
+class YATM::Error < StandardError
 	def text
 		raise NotImplementedError
 	end

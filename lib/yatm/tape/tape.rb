@@ -2,7 +2,7 @@
 
 require_relative "tape_errors"
 
-class UTM::Tape
+class YATM::Tape
 	module Move
 		LEFT = :l
 		RIGHT = :r

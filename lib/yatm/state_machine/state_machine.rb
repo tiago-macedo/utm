@@ -3,7 +3,7 @@
 require_relative "state_machine_errors"
 require_relative "event"
 
-class UTM::StateMachine
+class YATM::StateMachine
 	attr_reader :current_state, :events
 	
 	def initialize
@@ -38,7 +38,7 @@ class UTM::StateMachine
 	end
 	
 	def event(...)
-		@events << UTM::Event.new(...)
+		@events << YATM::Event.new(...)
 	end
 	
 	def process(value)

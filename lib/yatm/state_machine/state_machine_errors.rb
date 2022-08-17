@@ -2,7 +2,7 @@
 
 require_relative "../error"
 
-class StateMachineError < UTM::Error; end
+class StateMachineError < YATM::Error; end
 
 class InvalidState < StateMachineError
 	def initialize(state)

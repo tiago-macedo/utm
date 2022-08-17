@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "utm/version"
-require_relative "utm/tape/tape"
-require_relative "utm/state_machine/state_machine"
+require_relative "yatm/version"
+require_relative "yatm/tape/tape"
+require_relative "yatm/state_machine/state_machine"
 
-module UTM
+module YATM
 	class Machine
 		attr_reader :tape, :state_machine
 		

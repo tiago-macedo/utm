@@ -1,13 +1,13 @@
-# Utm
+# Yet Another Turing Machine
 
-This gem allows you to run a Turing Machine.
+This gem allows you to program an run a Turing Machine.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'utm'
+gem 'yatm'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install utm
+    $ gem install yatm
 
 ## Usage
 
@@ -30,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/tiago-macedo/utm.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tiago-macedo/yatm.
 
 ## License
 

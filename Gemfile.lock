@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    utm (0.1.0)
+    yatm (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -34,7 +34,7 @@ PLATFORMS
 DEPENDENCIES
   rake (~> 13.0)
   rubocop (~> 0.80)
-  utm!
+  yatm!
 
 BUNDLED WITH
    2.2.3

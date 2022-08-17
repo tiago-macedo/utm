@@ -1,6 +1,6 @@
-# Run with `./bin/console < lib/utm/state_machine/example.rb`
+# Run with `./bin/console < lib/yatm/state_machine/example.rb`
 
-sm = UTM::StateMachine.new
+sm = YATM::StateMachine.new
 sm.initial_state "start"
 
 sm.event 0, start: [:a, 1]
