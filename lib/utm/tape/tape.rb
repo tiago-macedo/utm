@@ -43,8 +43,31 @@ class UTM::Tape
 		abs_pos = @pos + @n_tape.size
 		str = ""
 		full.each_with_index do |val, idx|
-			str += idx == abs_pos ? "[#{val}]" : val.to_s
-			str += " "
+			str += "|:| " if idx == @n_tape.size
+			if idx == abs_pos
+				str += ">"
+			else
+				str += "["
+			end
+			str += val.inspect
+			if idx == abs_pos
+				str += "< "
+			else
+				str += "] "
+			end
+		end
+		
+		str
+	end
+	
+	def to_txt
+		full = @n_tape.reverse + @p_tape
+		abs_pos = @pos + @n_tape.size
+		str = ""
+		full.each_with_index do |val, idx|
+			str += "#{idx - @n_tape.size}".rjust(4) + " | #{val.inspect}".ljust(8)
+			str += " <=" if idx == abs_pos
+			str += "\n"
 		end
 		
 		str

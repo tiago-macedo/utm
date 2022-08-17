@@ -17,6 +17,19 @@ module UTM
 		def states(...); @state_machine.states(...); end
 		def event(...); @state_machine.event(...); end
 		
+		def to_s
+			<<~TO_S
+			,_______________
+			| State Machine
+			`---------------
+			#{@state_machine}
+			,______
+			| Tape
+			`------
+			#{@tape}
+			TO_S
+		end
+		
 		def step!(n = 1)
 			return if n < 1
 			

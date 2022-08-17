@@ -14,5 +14,6 @@ m.event 1,
 	
 m.initial_state :start
 
+puts m
 m.step!(10)
-puts m.tape
+puts m

@@ -14,6 +14,14 @@ class UTM::StateMachine
 		end
 	end
 	
+	def to_s
+		<<~TO_S.chomp
+		| states:  #{states}
+		| current: #{@current_state}
+		| events: #{@events.map(&:name)}
+		TO_S
+	end
+	
 	def states
 		@events.map do |event|
 			event.transitions.keys + event.transitions.map{ |key, val| val[:to] }
