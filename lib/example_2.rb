@@ -25,13 +25,16 @@ m.initial_state :_0
 m.final_state :halt, :overflow
 
 m.reset(content: [1, 2])
-m.step! 10
+m.run!
 puts m.tape
+puts m
 
 m.reset(content: [1, 0, 1])
-m.step! 10
+m.run!
 puts m.tape
+puts m
 
 m.reset(content: [1, 2, 1])
-m.step! 10
+m.run!
 puts m.tape
+puts m

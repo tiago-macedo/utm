@@ -15,5 +15,5 @@ m.initial_state :start
 m.final_state :end
 
 puts m
-m.step!(10)
+m.run!
 puts m

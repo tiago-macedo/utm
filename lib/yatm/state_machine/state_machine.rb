@@ -4,7 +4,7 @@ require_relative "state_machine_errors"
 require_relative "event"
 
 class YATM::StateMachine
-	attr_reader :current_state, :events
+	attr_reader :current_state, :events, :final_states, :initial_state
 	
 	def initialize
 		@events = []
