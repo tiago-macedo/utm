@@ -22,12 +22,34 @@ Or install it yourself as:
 
 See the examples at `lib/example_1.rb` and `lib/example_2.rb`.
 
-## ToDo
+## Roadmap
 
+### Alpha
 - [x] Final states
 - [ ] Allow transitions from any state (`m.event :e, UTM::any => [:state, "e", :r]`)
+- [ ] Other syntatic sugar
+
+### Beta
+
 - [ ] Tests
 - [ ] Documentation
+
+### Release 1
+
+- [ ] Compositon of machines
+
+### Release 2
+
+- [ ] Thread safety
+- [ ] Imutability
+- [ ] Next-gen holistic RESTful mainframe cryptography
+- [ ] Blockchain integration
+- [ ] AI
+  - [ ] If-else-based AI
+  - [ ] Unscrutable linear algebra-based AI
+  - [ ] GPT-3 integration
+- [ ] Client side rendering
+- [ ] Bluetooth
 
 ## Development
 
