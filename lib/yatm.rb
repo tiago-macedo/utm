@@ -14,6 +14,7 @@ module YATM
 		end
 		
 		def initial_state(...); @state_machine.initial_state(...); end
+		def final_state(...); @state_machine.final_state(...); end
 		def states(...); @state_machine.states(...); end
 		def event(...); @state_machine.event(...); end
 		
@@ -38,12 +39,16 @@ module YATM
 		def step!(n = 1)
 			return if n < 1
 			
-			(1..n).map do
+			history = []
+			(1..n).each do
 				result = @state_machine.process!(@tape.read)
+				history << result
+				break if result[:final]
 				@tape.write result[:write]
 				@tape.move result[:move]
-				result
 			end
+			
+			history
 		end
 	end
 end

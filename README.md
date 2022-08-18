@@ -24,7 +24,8 @@ See the examples at `lib/example_1.rb` and `lib/example_2.rb`.
 
 ## ToDo
 
-- [ ] Final states
+- [x] Final states
+- [ ] Allow transitions from any state (`m.event :e, UTM::any => [:state, "e", :r]`)
 - [ ] Tests
 - [ ] Documentation
 
