@@ -44,29 +44,13 @@ class YATM::Tape
 	
 	def to_s
 		full = @n_tape.reverse + @p_tape
-		abs_pos = @pos + @n_tape.size
-		str = ""
-		full.each_with_index do |val, idx|
-			str += "|:| " if idx == @n_tape.size
-			if idx == abs_pos
-				str += ">|"
-			else
-				str += "["
-			end
-			str += val.inspect
-			if idx == abs_pos
-				str += "|< "
-			else
-				str += "] "
-			end
-		end
-		
-		str
+		full.map.with_index do |val, idx|
+			cell_txt(val, idx)
+		end.join(" ").gsub(/^\[_\] /, "").gsub(/\[_\]\z/, "")
 	end
 	
 	def to_txt
 		full = @n_tape.reverse + @p_tape
-		abs_pos = @pos + @n_tape.size
 		str = ""
 		full.each_with_index do |val, idx|
 			str += "#{idx - @n_tape.size}".rjust(4) + " | #{val.inspect}".ljust(8)
@@ -79,10 +63,22 @@ class YATM::Tape
 	
 	private
 	
+	def cell_txt(val, idx)
+		str = (idx == @n_tape.size) ? "|:| " : ""
+		str += (idx == abs_pos) ? ">|" : "["
+		str += (val.nil?) ? "_" : val.inspect
+		str += (idx == abs_pos) ? "|<" : "]"
+		str
+	end
+	
 	def tape
 		@pos >= 0 ?
 			@p_tape :
 			@n_tape
+	end
+	
+	def abs_pos
+		@pos + @n_tape.size
 	end
 	
 	def table_pos
