@@ -9,10 +9,16 @@ Gem::Specification.new do |spec|
   spec.email         = ["tiagomacedo@ufrj.br"]
 
   spec.summary       = "Yet Another Turing Machine implementation."
-  spec.description   = "Yes, it is yet another Turing Machine implementation."
+  spec.description   = <<~DESC.chomp
+    This gem provides you with the module `YATM`.
+    The class YATM::Machine, specifically, allows you to program a functioning
+    turing machine and load it with a tape containing arbitrary symbols.
+    
+    Check out files `lib/example_*.rb` to see it in action.
+  DESC
   spec.homepage      = "https://github.com/tiago-macedo/yatm"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.0.0")
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
