@@ -2,8 +2,8 @@
 
 m = YATM::Machine.new
 m.event 1,
-	s: [:on, 1, :r],
-	on: [:on, 1, :r]
+	s:	[:on				, YATM::SAME	, :r],
+	on:	[YATM::SAME	, YATM::SAME	, :r]
 m.event nil,
 	YATM::ANY => [:halt, "X", :l]
 m.initial_state :s
