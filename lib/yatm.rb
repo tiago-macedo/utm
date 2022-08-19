@@ -6,5 +6,10 @@ require_relative "yatm/state_machine/state_machine"
 require_relative "yatm/machine/machine"
 
 module YATM
-	
+	ANY = :_ANY.freeze
+	SAME = :_SAME.freeze
+	SAME = :_SAME.freeze
+	LEFT = :l
+	RIGHT = :r
+	NONE = nil
 end

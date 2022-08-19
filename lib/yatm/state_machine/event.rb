@@ -34,10 +34,10 @@ class YATM::Event
 			return add_transition( [ t[0], [t[1]] ] )
 		end
 		
-		from = statify(t[0])
-		to = statify(t[1][0])
+		from = YATM::StateMachine.statify(t[0])
+		to = YATM::StateMachine.statify(t[1][0])
 		write = t[1][1] || @name
-		move = t[1][2] || YATM::Tape::Move::NONE
+		move = t[1][2] || YATM::NONE
 		
 		@transitions.merge!({
 			from => {
@@ -46,12 +46,5 @@ class YATM::Event
 				move: move
 			}
 		})
-	end
-	
-	def statify(state)
-		raise InvalidState.new(state) unless state.respond_to?(:to_s)
-		state = state.to_s
-		raise InvalidState.new(state) unless state.respond_to?(:to_sym)
-		state.to_sym
 	end
 end

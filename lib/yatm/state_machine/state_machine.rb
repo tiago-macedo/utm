@@ -34,18 +34,25 @@ class YATM::StateMachine
 	end
 	
 	def initial_state(state)
-		@initial_state = statify(state)
+		@initial_state = self.class.statify(state)
 		@current_state = @initial_state
 	end
 	
 	def final_state(*states)
 		states.each do |state|
-			(@final_states << statify(state)).uniq!
+			(@final_states << self.class.statify(state)).uniq!
 		end
 	end
 	
-	def event(...)
-		@events << YATM::Event.new(...)
+	def event(name, **transitions)
+		if (any_result = transitions.delete(YATM::ANY))
+			any_from = states - @final_states
+			any_transitions = any_from.map do |from|
+				[from, any_result]
+			end.to_h
+			transitions.merge! any_transitions
+		end
+		@events << YATM::Event.new(name, **transitions)
 	end
 	
 	def process(value)
@@ -68,12 +75,10 @@ class YATM::StateMachine
 		transition
 	end
 	
-	private
-	
-	def statify(name)
-		raise InvalidState.new(name) unless name.respond_to?(:to_s)
-		name = name.to_s
-		raise InvalidState.new(name) unless name.respond_to?(:to_sym)
-		name.to_sym
+	def self.statify(state)
+		raise InvalidState.new(state) unless state.respond_to?(:to_s)
+		state = state.to_s
+		raise InvalidState.new(state) unless state.respond_to?(:to_sym)
+		state.to_sym
 	end
 end

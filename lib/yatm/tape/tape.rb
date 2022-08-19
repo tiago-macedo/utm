@@ -3,12 +3,6 @@
 require_relative "tape_errors"
 
 class YATM::Tape
-	module Move
-		LEFT = :l
-		RIGHT = :r
-		NONE = nil
-	end
-	
   attr_accessor :pos
 	
 	def initialize(...)
@@ -28,15 +22,15 @@ class YATM::Tape
 		tape[table_pos] = value
 	end
 	
-	def move(direction = Move::NONE)
+	def move(direction = YATM::NONE)
 		case direction
-		when Move::RIGHT
+		when YATM::RIGHT
 			@pos += 1
 			expand if table_pos == tape.size
-		when Move::LEFT
+		when YATM::LEFT
 			@pos -= 1
 			expand if table_pos > tape.size
-		when Move::NONE
+		when YATM::NONE
 		else
 			raise InvalidMove
 		end
@@ -46,7 +40,10 @@ class YATM::Tape
 		full = @n_tape.reverse + @p_tape
 		full.map.with_index do |val, idx|
 			cell_txt(val, idx)
-		end.join(" ").gsub(/^\[_\] /, "").gsub(/\[_\]\z/, "")
+		end.join(" ")
+			.gsub(/^\[_\] +/, "")
+			.gsub(/(\[_\] )*\[_\]\z/, "")
+			.gsub(/ \z/, "")
 	end
 	
 	def to_txt
