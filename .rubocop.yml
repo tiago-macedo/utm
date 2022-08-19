@@ -20,5 +20,11 @@ Layout/IndentationStyle:
 Style/SingleLineMethods:
   Enabled: false
 
+Style/RescueModifier:
+  Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
 # Style/TrailingBodyOnMethodDefinition:
 #   Enabled: false

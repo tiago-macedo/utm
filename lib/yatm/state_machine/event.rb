@@ -40,11 +40,9 @@ class YATM::Event
 
     from = YATM::StateMachine.statify(t[0])
     to = YATM::StateMachine.statify(t[1][0])
-    write = if t[1][1] == YATM::SAME
-              @name
-            else
+    write = t[1][1] == YATM::SAME ?
+              @name :
               t[1][1] || @name
-            end
     move = t[1][2] || YATM::NONE
 
     @transitions.merge!({
