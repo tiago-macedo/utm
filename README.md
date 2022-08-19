@@ -4,7 +4,7 @@ This gem allows you to program an run a Turing Machine.
 
 ## Current state
 
-Alpha.
+Beta.
 
 ## Installation
 
