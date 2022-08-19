@@ -4,7 +4,7 @@ class YATM::Machine
 	attr_reader :tape, :state_machine, :history
 	
 	def initialize(position: 0, content: [nil])
-		@tape = YATM::Tape.new(position: position, content: content)
+		@tape = YATM::Tape.new(content, position: position)
 		@state_machine = YATM::StateMachine.new
 		@history = []
 	end
@@ -12,6 +12,7 @@ class YATM::Machine
 	def initial_state(...); @state_machine.initial_state(...); end
 	def final_state(...); @state_machine.final_state(...); end
 	def states(...); @state_machine.states(...); end
+	def events(...); @state_machine.events(...); end
 	def event(...); @state_machine.event(...); end
 	
 	def reset(...)

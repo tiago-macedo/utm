@@ -7,12 +7,8 @@ class YATM::StateMachine
 	attr_reader :current_state, :events, :final_states, :initial_state
 	
 	def initialize
-		@events = []
+		@events = {}
 		@final_states = []
-		
-		def @events.[](name)
-			self.find { |e| e.name == name }&.transitions
-		end
 	end
 	
 	def reset
@@ -28,8 +24,8 @@ class YATM::StateMachine
 	end
 	
 	def states
-		@events.map do |event|
-			event.transitions.keys + event.transitions.map{ |key, val| val[:to] }
+		@events.map do |name, event|
+			event.keys + event.map{ |_, val| val[:to] }
 		end.flatten.uniq
 	end
 	
@@ -50,9 +46,10 @@ class YATM::StateMachine
 			any_transitions = any_from.map do |from|
 				[from, any_result]
 			end.to_h
+			puts any_transitions
 			transitions.merge! any_transitions
 		end
-		@events << YATM::Event.new(name, **transitions)
+		@events[name] = YATM::Event.new(name, **transitions)
 	end
 	
 	def process(value)

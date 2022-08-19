@@ -11,12 +11,16 @@ class YATM::Event
 		transitions&.each { |t| add_transition(t) }
 	end
 	
+	def keys; @transitions.keys; end
+	def map(&block); @transitions.map(&block); end
+	def [](key); @transitions[key]; end
+	
 	def to_s
-		str = "#{name}: {\n"
+		str = "#{name.nil? ? "_" : name}:\n"
 		@transitions.each do |k, v|
 			str += "  #{k} -> #{v}\n"
 		end
-		str += "}"
+		str
 	end
 	
 	def run(from)

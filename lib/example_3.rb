@@ -8,7 +8,7 @@ m.event nil,
 	YATM::ANY => [:halt, "X", :l]
 m.initial_state :s
 m.final_state :halt
-m.reset content: [1, 1, 1]
+m.reset [1, 1, 1]
 
 puts m.tape
 m.run!

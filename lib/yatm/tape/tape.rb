@@ -9,7 +9,7 @@ class YATM::Tape
 		reset(...)
 	end
 	
-	def reset(position: 0, content: [nil])
+	def reset(content = [nil], position: 0)
 		@pos, @p_tape = position, content
 		@n_tape = [nil]
 	end
