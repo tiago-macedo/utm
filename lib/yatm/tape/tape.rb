@@ -63,7 +63,7 @@ class YATM::Tape
 	def cell_txt(val, idx)
 		str = (idx == @n_tape.size) ? "|:| " : ""
 		str += (idx == abs_pos) ? ">|" : "["
-		str += (val.nil?) ? "_" : val.inspect
+		str += (val.nil?) ? "_" : val.to_s
 		str += (idx == abs_pos) ? "|<" : "]"
 		str
 	end

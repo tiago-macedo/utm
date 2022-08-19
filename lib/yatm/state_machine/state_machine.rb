@@ -41,14 +41,6 @@ class YATM::StateMachine
 	end
 	
 	def event(name, **transitions)
-		if (any_result = transitions.delete(YATM::ANY))
-			any_from = states - @final_states
-			any_transitions = any_from.map do |from|
-				[from, any_result]
-			end.to_h
-			puts any_transitions
-			transitions.merge! any_transitions
-		end
 		@events[name] = YATM::Event.new(name, **transitions)
 	end
 	
@@ -61,14 +53,12 @@ class YATM::StateMachine
 	def process!(value)
 		return {final: @current_state} if @final_states.include?(@current_state)
 		raise InitialStateNotSet unless @current_state
-		raise InvalidEvent.new(value) unless (
-			event = @events[value]
-		)
+		raise InvalidEvent.new(value) unless (event = @events[value])
 		raise InvalidTransition.new(@current_state, event) unless (
-			transition = event[@current_state]
+			transition = event[@current_state] || event[YATM::ANY]
 		)
 		
-		@current_state = transition[:to]
+		@current_state = transition[:to] unless transition[:to] == YATM::SAME
 		transition
 	end
 	

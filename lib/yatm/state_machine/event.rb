@@ -39,9 +39,7 @@ class YATM::Event
 		end
 		
 		from = YATM::StateMachine.statify(t[0])
-		to = t[1][0] == YATM::SAME ?
-			from :
-			YATM::StateMachine.statify(t[1][0])
+		to = YATM::StateMachine.statify(t[1][0])
 		write = t[1][1] == YATM::SAME ?
 			@name :
 			t[1][1] || @name

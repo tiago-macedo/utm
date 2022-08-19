@@ -2,10 +2,10 @@
 
 m = YATM::Machine.new
 m.event 1,
-	s:	[:on				, YATM::SAME	, :r],
-	on:	[YATM::SAME	, YATM::SAME	, :r]
+	s:	[:on , :_, :r],
+	on:	[:_  , :_, :r]
 m.event nil,
-	YATM::ANY => [:halt, "X", :l]
+	:* => [:halt, "X", :l]
 m.initial_state :s
 m.final_state :halt
 m.reset [1, 1, 1]

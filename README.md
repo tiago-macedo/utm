@@ -31,8 +31,7 @@ See the examples at `lib/example_1.rb` and `lib/example_2.rb`.
 ### Alpha
 - [x] Final states
 - [x] Allow transitions from any state (`m.event :e, YATM::ANY => [:state, "e", :r]`)
-- [~] Other syntatic sugar
-  - [ ] Fix `YATM::ANY`
+- [x] Other syntatic sugar
 
 ### Beta
 
