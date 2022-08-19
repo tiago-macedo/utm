@@ -8,9 +8,9 @@ sm.event 1, a: [:b, 2, :r]
 sm.event 2, b: [:c, 3, :l]
 sm.event 3, c: [:a, 1, :r]
 sm.event false,
-	a: :finish,
-	b: :finish,
-	c: :finish
+         a: :finish,
+         b: :finish,
+         c: :finish
 
 puts sm.events
 

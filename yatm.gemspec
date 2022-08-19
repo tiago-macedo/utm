@@ -23,13 +23,13 @@ Gem::Specification.new do |spec|
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files = [
-		"lib/yatm.rb",
-		"lib/yatm/version.rb",
-		"lib/yatm/error.rb",
-		"lib/yatm/tape/tape.rb",
-		"lib/yatm/state_machine/state_machine.rb",
-		"lib/yatm/machine/machine.rb"
-	]
+    "lib/yatm.rb",
+    "lib/yatm/version.rb",
+    "lib/yatm/error.rb",
+    "lib/yatm/tape/tape.rb",
+    "lib/yatm/state_machine/state_machine.rb",
+    "lib/yatm/machine/machine.rb"
+  ]
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]

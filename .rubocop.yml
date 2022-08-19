@@ -8,3 +8,14 @@ Style/StringLiteralsInInterpolation:
 
 Layout/LineLength:
   Max: 120
+
+Layout/IndentationStyle:
+  Enabled: true
+  IndentationWidth: 2
+  EnforcedStyle: spaces
+
+Style/SingleLineMethods:
+  Enabled: false
+
+# Style/TrailingBodyOnMethodDefinition:
+#   Enabled: false
