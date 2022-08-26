@@ -26,5 +26,8 @@ Style/RescueModifier:
 Style/MultilineTernaryOperator:
   Enabled: false
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 # Style/TrailingBodyOnMethodDefinition:
 #   Enabled: false

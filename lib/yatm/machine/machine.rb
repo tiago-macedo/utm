@@ -1,8 +1,29 @@
 # frozen_string_literal: true
 
+# This is the class used to set up and use the turing machine.
+#
+# Use {#event} to create the various transitions. The states are automatically
+# inferred to be all the states added through this method.
+# 
+# Use {#initial_state} once to select the initial state, and {#final_state}
+# however many times to mark states as final.
+#
+# The content of the tape can be given upon initializing the machine, through
+# the parameter `content`, or with the method {#reset}.
+#
+# @example
+#   m = YATM::Machine.new
+#   m.event nil,
+#     start:   [:running, "O", :r],
+#     running: [:halt, "X", :l]
+#   m.initial_state :start
+#   m.final_state :halt
+#   m.run!
 class YATM::Machine
   attr_reader :tape, :state_machine, :history
 
+	# @param position [Integer] The initial position of the machine's head.
+	# @param content [Array] The initial content of the tape, starting from position 0.
   def initialize(position: 0, content: [nil])
     @tape = YATM::Tape.new(content, position: position)
     @state_machine = YATM::StateMachine.new
