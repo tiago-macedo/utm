@@ -11,7 +11,7 @@
 # The content of the tape can be given upon initializing the machine, through
 # the parameter `content`, or with the method {#reset}.
 #
-# @example
+# @example A turing machine which prints an "OX" and halts at position 0.
 #   m = YATM::Machine.new
 #   m.event nil,
 #     start:   [:running, "O", :r],
@@ -20,7 +20,12 @@
 #   m.final_state :halt
 #   m.run!
 class YATM::Machine
-  attr_reader :tape, :state_machine, :history
+	# The tape over which values can be written and read by the machine.
+  attr_reader :tape
+	# The state machine associated with this turing machine.
+	attr_reader :state_machine
+	# @return [Array<Hash>] A record of the transitions undergone by the machine.
+	attr_reader :history
 
 	# @param position [Integer] The initial position of the machine's head.
 	# @param content [Array] The initial content of the tape, starting from position 0.
@@ -30,10 +35,14 @@ class YATM::Machine
     @history = []
   end
 
+	# @param state [String, Symbol, Number] The state to be set as the starting state.
+	# @return [String, Symbol, Number] The initial state.
   def initial_state(...); @state_machine.initial_state(...); end
 
+	# (see YATM::StateMachine#final_state)
   def final_state(...); @state_machine.final_state(...); end
 
+	# (see YATM::StateMachine#states)
   def states(...); @state_machine.states(...); end
 
   def events(...); @state_machine.events(...); end

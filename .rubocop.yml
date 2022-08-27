@@ -29,5 +29,8 @@ Style/MultilineTernaryOperator:
 Style/ClassAndModuleChildren:
   Enabled: false
 
+Metrics/MethodLength:
+  Enabled: false
+
 # Style/TrailingBodyOnMethodDefinition:
 #   Enabled: false
