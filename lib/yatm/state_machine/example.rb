@@ -21,9 +21,9 @@ sm.process! 0
 sm.process! 1
 sm.process! 2
 sm.process! 3
-"attempt invalid event with #process:"
+puts "attempt invalid event with #process:"
 sm.process 4
 sm.current_state
 sm.process false
-"attempt invalid event with #process!:"
+puts "attempt invalid event with #process!:"
 sm.process! 4
