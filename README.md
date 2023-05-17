@@ -1,6 +1,6 @@
 # Yet Another Turing Machine
 
-A small gem to create an run a Turing Machines.
+A small gem to create an run Turing Machines.
 
 ## Synopsis
 
